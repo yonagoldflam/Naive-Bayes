@@ -10,8 +10,9 @@ class Checker:
             dict_prediction[col] = input(f'enter the value for {col}')
         return dict_prediction
 
-    def prediction(self):
-        dict_prediction = self.get_values_prediction()
+    def prediction(self, dict_prediction=None):
+        if dict_prediction is None:
+            dict_prediction = self.get_values_prediction()
         classified_dict = {}
         for k,v in self.coached_dict['classified'].items():
             classified_dict[k] = v
