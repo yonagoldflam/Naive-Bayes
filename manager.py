@@ -4,16 +4,31 @@ from checker import Checker
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-
-
 class Manager:
-    def __init__(self,df):
-        self.df = df
+    def __init__(self):
+        self.interact = None
+        self.df = None
         self.df_30 = None
         self.df_70 = None
         self.coached_dict = {}
         self.predict_df = None
 
+    def update_model(self,data_url):
+        self.interact = Interactor(data_url)
+        self.df = self.interact.df
+        print(self.interact.df)
+        return 'good'
+
+    def predict(self, row_dict):
+        c = Coach(self.interact.df)
+        checker = Checker(c.coached_dict)
+        response = checker.prediction(row_dict)
+        return response
+
+    def validate_model(self):
+        self.cat_df()
+        self.coached_df()
+        return self.prediction_df()
 
     def cat_df(self):
         target_column = self.df.columns[-1]
@@ -25,7 +40,7 @@ class Manager:
         )
     def coached_df(self):
         coach = Coach(self.df_70)
-        self.coached_dict = coach.coach()
+        self.coached_dict = coach.coached_dict
 
     def prediction_df(self):
         self.df_30 = self.df_30.iloc[:, :-1].to_dict(orient='records')
