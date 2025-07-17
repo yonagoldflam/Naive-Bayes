@@ -21,3 +21,5 @@ class Menu:
 a = Menu()
 a.menu()
 
+# C:/Users/HOME/OneDrive/שולחן העבודה/data python/buy_computer_data.csv
+# {'age': '<=30', 'income':'medium','student': 'yes','credit_rating':'fair'}
