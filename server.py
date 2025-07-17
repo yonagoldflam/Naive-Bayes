@@ -17,8 +17,8 @@ def validation():
     return {'validate resalt': manager.validate_model()}
 @app.post("/predict")
 def predict(vector: dict[str, str]):
-    return {'resalt':(manager.predict(vector),vector)}
+    return {'resalt':(manager.predict(vector))}
 
 
 if __name__ == '__main__':
-    uv.run('test:app', host='127.0.0.1', port=8080,reload=True)
+    uv.run('server:app', host='127.0.0.1', port=8080,reload=True)

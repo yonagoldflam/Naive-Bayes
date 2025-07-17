@@ -1,6 +1,6 @@
 from interactor import Interactor
-from coach import Coach
-from checker import Checker
+from training import Training
+from prediction import Checker
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
@@ -10,18 +10,19 @@ class Manager:
         self.df = None
         self.df_30 = None
         self.df_70 = None
-        self.coached_dict = {}
+        self.Trained_70_dict = {}
+        self.Trained_dict = {}
         self.predict_df = None
 
     def update_model(self,data_url):
         self.interact = Interactor(data_url)
         self.df = self.interact.df
-        print(self.interact.df)
+        t = Training(self.df)
+        self.Trained_dict = t.Trained_dict
         return 'good'
 
     def predict(self, row_dict):
-        c = Coach(self.interact.df)
-        checker = Checker(c.coached_dict)
+        checker = Checker(self.Trained_dict)
         response = checker.prediction(row_dict)
         return response
 
@@ -39,12 +40,12 @@ class Manager:
             stratify=self.df[target_column]
         )
     def coached_df(self):
-        coach = Coach(self.df_70)
-        self.coached_dict = coach.coached_dict
+        coach = Training(self.df_70)
+        self.Trained_70_dict = coach.Trained_dict
 
     def prediction_df(self):
         self.df_30 = self.df_30.iloc[:, :-1].to_dict(orient='records')
-        checker = Checker(self.coached_dict)
+        checker = Checker(self.Trained_70_dict)
         count_corect = 0
         count_uncorect = 0
         for row_dict in self.df_30:
