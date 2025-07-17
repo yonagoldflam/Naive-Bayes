@@ -1,9 +1,9 @@
-class Coach:
+class Training:
     def __init__(self, df):
         self.df = df
-        self.coached_dict = self.coach()
+        self.Trained_dict = self.training()
 
-    def coach(self):
+    def training(self):
         answer_col = self.df.columns[-1]
         group_cols = self.df.columns[:-1]
         total = self.df[answer_col].value_counts()
@@ -15,3 +15,4 @@ class Coach:
             result[col] = ratio.round(3).to_dict(orient='index')
 
         return result
+
