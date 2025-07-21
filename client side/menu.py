@@ -6,7 +6,7 @@ class Menu:
     def menu(self):
         flag = True
         while flag:
-            match input('Choose one of the options below: \n1. Update the model \n2. Validate model \n3. Predict a row\nany key to Exit:\nEnter your choice: \n'):
+            match input('Choose one of the options below: \n1. Update the model \n2. Validate model \n3. Predict a row\nany key to Exit:\n4. select data for prediction \nEnter your choice: \n'):
                 case '1':
                     data_url = input('Enter the data url: ')
                     self.request.update_model(data_url)
@@ -16,6 +16,11 @@ class Menu:
                 case '3':
                     body = eval(input('enter row dict: '))
                     self.request.predict_row_request(body)
+
+                case '4':
+                    data_name = input('Enter the data name: ')
+                    self.request.select_data(data_name)
+
                 case _:
                     flag = False
 a = Menu()

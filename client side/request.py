@@ -20,5 +20,11 @@ class Request:
         print(response.status_code)
         print(response.text)
 
+    def select_data(self,model_name):
+        response = requests.get(f"{self.base_url}/select", params={"model_name": model_name})
+        print(response.status_code)
+        print(response.text)
+
+
 
 
