@@ -1,7 +1,9 @@
+import json
 class Training:
     def __init__(self, df):
         self.df = df
         self.Trained_dict = self.training()
+        self.write_to_json_file()
 
     def training(self):
         answer_col = self.df.columns[-1]
@@ -15,4 +17,8 @@ class Training:
             result[col] = ratio.round(3).to_dict(orient='index')
 
         return result
+
+    def write_to_json_file(self):
+        with open('trained_data.json', 'w') as file:
+            json.dump(self.Trained_dict, file)
 

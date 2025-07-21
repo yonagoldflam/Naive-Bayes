@@ -1,8 +1,9 @@
 from manager import Manager
+from validator import Validator
 import uvicorn as uv
 from fastapi import FastAPI
 
-
+validate = Validator()
 manager = Manager()
 app = FastAPI()
 
@@ -14,7 +15,7 @@ def update(data_url: str):
 
 @app.get("/validation")
 def validation():
-    return {'validate resalt': manager.validate_model()}
+    return {'validate resalt': validate.validate_model(manager.df)}
 @app.post("/predict")
 def predict(vector: dict[str, str]):
     return {'resalt':(manager.predict(vector))}
