@@ -19,10 +19,6 @@ class Validator:
         self.validate_resalt = self.prediction_df()
         return self.validate_resalt
 
-    # def read_data(self):
-    #     with open('trained_data.json', 'r') as file:
-    #         self.coached_dict = json.load(file)
-
     def cat_df(self):
         target_column = self.df.columns[-1]
         self.df_70, self.df_30 = train_test_split(

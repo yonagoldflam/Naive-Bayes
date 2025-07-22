@@ -30,5 +30,5 @@ def select(model_name: str):
 
 
 
-if __name__ == '__main__':
-    uv.run('server:app', host='127.0.0.1', port=8080,reload=True)
+# if __name__ == '__main__':
+#     uv.run('server:app', host='127.0.0.1', port=8080,reload=True)

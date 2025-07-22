@@ -19,6 +19,6 @@ class Training:
         return result
 
     def write_to_json_file(self,file_name):
-        with open(f'model files/{file_name}.json', 'w') as file:
+        with open(f"{file_name}.json", "w") as file:
             json.dump(self.Trained_dict, file)
 

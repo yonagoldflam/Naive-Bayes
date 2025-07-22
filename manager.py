@@ -18,7 +18,7 @@ class Manager:
         return 'good'
 
     def select_data(self,data_name):
-        with open(f"model files/{data_name}.json", 'r') as file:
+        with open(f"../model files/{data_name}.json", 'r') as file:
             self.Trained_dict = json.load(file)
 
 
