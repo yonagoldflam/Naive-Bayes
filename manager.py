@@ -1,7 +1,7 @@
 import json
 from interactor import Interactor
 from training import Training
-from prediction import Checker
+from prediction import Classifier
 
 
 class Manager:
@@ -23,8 +23,8 @@ class Manager:
 
 
     def predict(self, row_dict):
-        checker = Checker(self.Trained_dict)
-        response = checker.prediction(row_dict)
+        classifier =   Classifier(self.Trained_dict)
+        response = classifier.prediction(row_dict)
         return response
 
 

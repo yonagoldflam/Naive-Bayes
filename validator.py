@@ -1,5 +1,5 @@
 import json
-from prediction import Checker
+from prediction import Classifier
 from training import Training
 from sklearn.model_selection import train_test_split
 import pandas as pd
@@ -34,7 +34,7 @@ class Validator:
 
     def prediction_df(self):
         self.df_30 = self.df_30.iloc[:, :-1].to_dict(orient='records')
-        checker = Checker(self.trained_70_dict)
+        checker = Classifier(self.trained_70_dict)
         count_corect = 0
         count_uncorect = 0
         for row_dict in self.df_30:

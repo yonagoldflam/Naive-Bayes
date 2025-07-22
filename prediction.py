@@ -1,4 +1,4 @@
-class Checker:
+class Classifier:
     def __init__(self, trained_dict):
         self.coached_dict = trained_dict
 
