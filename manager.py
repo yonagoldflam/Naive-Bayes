@@ -1,8 +1,6 @@
 import json
 from interactor import Interactor
 from training import Training
-from prediction import Classifier
-
 
 class Manager:
     def __init__(self):
@@ -21,10 +19,7 @@ class Manager:
         with open(f"../model files/{data_name}.json", 'r') as file:
             self.Trained_dict = json.load(file)
 
-
-    def predict(self, row_dict):
-        classifier =   Classifier(self.Trained_dict)
-        response = classifier.prediction(row_dict)
-        return response
+    def get_trained_model(self):
+        return self.Trained_dict
 
 
