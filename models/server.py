@@ -27,4 +27,4 @@ def trained():
     return manager.get_trained_model()
 
 if __name__ == '__main__':
-    uv.run('server:app', host='127.0.0.1', port=8080,reload=True)
+    uv.run('server:app', host='127.0.0.1', port=8040,reload=True)
