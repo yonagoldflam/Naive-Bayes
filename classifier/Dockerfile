@@ -11,4 +11,4 @@ RUN pip install --no-cache-dir \
     requests
 
 
-CMD ["uvicorn", "classifier_server:app", "--host", "0.0.0.0", "--port", "8050"]
+CMD ["uvicorn", "classifier_server:app", "--host", "0.0.0.0", "--port", "9010"]

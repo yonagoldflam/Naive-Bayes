@@ -1,6 +1,5 @@
-import json
-from prediction import Classifier
-from training import Training
+from validator.prediction import Classifier
+from trainer.training import Training
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
@@ -15,7 +14,7 @@ class Validator:
     def validate_model(self, df):
         self.df = df
         self.cat_df()
-        self.coached_df()
+        self.trained_df()
         self.validate_resalt = self.prediction_df()
         return self.validate_resalt
 
@@ -28,9 +27,9 @@ class Validator:
             stratify=self.df[target_column]
         )
 
-    def coached_df(self):
-        coach = Training(self.df_70)
-        self.trained_70_dict = coach.Trained_dict
+    def trained_df(self):
+        trainer = Training(self.df_70)
+        self.trained_70_dict = trainer.Trained_dict
 
     def prediction_df(self):
         self.df_30 = self.df_30.iloc[:, :-1].to_dict(orient='records')

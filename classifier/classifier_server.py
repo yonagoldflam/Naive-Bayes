@@ -15,13 +15,13 @@ app = FastAPI()
 
 @app.post("/classify")
 def classify(vector: dict[str, str]):
-    trained_model = get_trained_model('http://main-server:8000')
+    trained_model = get_trained_model('http://model:9000')
     print(trained_model)
     return {'resalt':(cla.classifier(trained_model,vector))}
 
 # @app.post("/predict")
 # def predict(vector: dict[str, str]):
-#     trained_model = get_trained_model('http://127.0.0.1:8080')
+#     trained_model = get_trained_model('http://127.0.0.1:8040')
 #     print(trained_model)
 #     return {'resalt':(cla.classifier(trained_model,vector))}
 

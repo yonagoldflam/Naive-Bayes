@@ -1,5 +1,5 @@
 from manager import Manager
-from validator import Validator
+from validator.validator import Validator
 import uvicorn as uv
 from fastapi import FastAPI
 
@@ -26,5 +26,5 @@ def select(model_name: str):
 def trained():
     return manager.get_trained_model()
 
-if __name__ == '__main__':
-    uv.run('server:app', host='127.0.0.1', port=8040,reload=True)
+# if __name__ == '__main__':
+#     uv.run('server:app', host='127.0.0.1', port=8040,reload=True)

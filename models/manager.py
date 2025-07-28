@@ -1,6 +1,6 @@
 import json
-from interactor import Interactor
-from training import Training
+from interactor.interactor import Interactor
+from trainer.training import Training
 
 class Manager:
     def __init__(self):
@@ -16,7 +16,7 @@ class Manager:
         return 'good'
 
     def select_data(self,data_name):
-        with open(f"../model files/{data_name}.json", 'r') as file:
+        with open(f"data/{data_name}.json", 'r') as file:
             self.Trained_dict = json.load(file)
 
     def get_trained_model(self):
