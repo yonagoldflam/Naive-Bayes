@@ -4,8 +4,6 @@ WORKDIR /app
 
 COPY . .
 
-ENV PYTHONPATH=/app
-
 RUN pip install --upgrade pip
 RUN pip install fastapi uvicorn scikit-learn pandas
 

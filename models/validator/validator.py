@@ -33,11 +33,11 @@ class Validator:
 
     def prediction_df(self):
         self.df_30 = self.df_30.iloc[:, :-1].to_dict(orient='records')
-        checker = Classifier()
+        classify = Classifier()
         count_corect = 0
         count_uncorect = 0
         for row_dict in self.df_30:
-            answer_pred = checker.classifier(self.trained_70_dict, row_dict)[0]
+            answer_pred = classify.classifier(self.trained_70_dict, row_dict)[0]
 
             mask = (self.df[list(row_dict)] == pd.Series(row_dict)).all(axis=1)
             if self.df.loc[mask, self.df.columns[-1]].iloc[0] == answer_pred:
