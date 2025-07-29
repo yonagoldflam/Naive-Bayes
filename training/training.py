@@ -2,7 +2,7 @@ import json
 class Training:
     def __init__(self, df,file_name='validate'):
         self.df = df
-        self.Trained_dict = self.training()
+        self.trained_dict = self.training()
         self.write_to_json_file(file_name)
 
     def training(self):
@@ -19,6 +19,6 @@ class Training:
         return result
 
     def write_to_json_file(self,file_name):
-        with open(f'model files/{file_name}.json', 'w') as file:
-            json.dump(self.Trained_dict, file)
+        with open(f"model_files/{file_name}.json", 'w') as file:
+            json.dump(self.trained_dict, file)
 

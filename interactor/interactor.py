@@ -9,7 +9,7 @@ class Interactor:
 
     def get_data(self, url):
         if url[-3:] == 'csv':
-            self.df = pd.read_csv(url,encoding='utf-8')
+            self.df = pd.read_csv(f"model_files/{url}",encoding='utf-8')
         self.file_name = Path(url).stem
 
 
