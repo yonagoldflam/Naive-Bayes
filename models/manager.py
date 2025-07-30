@@ -12,7 +12,7 @@ class Manager:
         self.interact.get_data(data_url)
         self.df = self.interact.df
         t = Training(self.df,self.interact.file_name)
-        self.Trained_dict = t.Trained_dict
+        self.Trained_dict = t.trained_dict
         return 'good'
 
     def select_data(self,data_name):

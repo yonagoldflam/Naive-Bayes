@@ -29,7 +29,7 @@ class Validator:
 
     def trained_df(self):
         trainer = Training(self.df_70)
-        self.trained_70_dict = trainer.Trained_dict
+        self.trained_70_dict = trainer.trained_dict
 
     def prediction_df(self):
         self.df_30 = self.df_30.iloc[:, :-1].to_dict(orient='records')
